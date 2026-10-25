@@ -23,7 +23,7 @@ pruebas, escritas a partir de los criterios de los RQ que cubre. Ver CLAUDE.md.
   "+Bs 20,00", "-Bs 5,00", "Bs 0,00".
 - **Hecho cuando**: ningún cálculo de dinero usa decimales.
 
-## [ ] T-03 Reparto y saldos
+## [x] T-03 Reparto y saldos
 - **Cubre**: RQ-04, RQ-07
 - **Qué**: `types.ts`, `split.ts` (`splitEqually`) y `balances.ts`
   (`computeBalances`).
