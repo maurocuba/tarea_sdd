@@ -13,7 +13,7 @@ pruebas, escritas a partir de los criterios de los RQ que cubre. Ver CLAUDE.md.
   título.
 - **Hecho cuando**: los cuatro chequeos de "verde" pasan.
 
-## [ ] T-02 Dinero: leer y mostrar montos
+## [x] T-02 Dinero: leer y mostrar montos
 - **Cubre**: RQ-03 (monto), RQ-09
 - **Qué**: `money.ts` con `parseAmount(text)` → centavos o `null`,
   `formatAmount(cents)` y `formatSigned(cents)`.
