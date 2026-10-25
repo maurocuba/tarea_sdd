@@ -41,7 +41,7 @@ pruebas, escritas a partir de los criterios de los RQ que cubre. Ver CLAUDE.md.
   hay como máximo k − 1.
 - **Hecho cuando**: cumple los tres criterios de RQ-08 para cualquier grupo.
 
-## [ ] T-05 Validación y reducer del grupo
+## [x] T-05 Validación y reducer del grupo
 - **Cubre**: RQ-01, RQ-02, RQ-03 (validación y alta), RQ-06 (baja), RQ-12
 - **Qué**: `validation.ts` (`validateName`, `validateExpense`) y
   `groupReducer.ts` con sus acciones y el selector `isParticipantInUse`.
