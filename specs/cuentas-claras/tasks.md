@@ -62,7 +62,7 @@ pruebas, escritas a partir de los criterios de los RQ que cubre. Ver CLAUDE.md.
 - **Hecho cuando**: recargar restaura el grupo y datos corruptos no rompen la
   app.
 
-## [ ] T-07 Interfaz: participantes
+## [x] T-07 Interfaz: participantes
 - **Cubre**: RQ-01, RQ-02, RQ-11
 - **Qué**: `ParticipantsPanel.tsx`, `App.tsx` con `useGroup`, estilos base e
   `index.css` con foco visible.

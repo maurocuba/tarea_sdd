@@ -1,10 +1,31 @@
 .app {
-  max-width: 960px;
+  max-width: 1040px;
   margin: 0 auto;
   padding: 24px 16px 48px;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
 .title {
-  margin: 0 0 24px;
+  margin: 0;
   font-size: 2rem;
+  color: var(--accent);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.column {
+  display: grid;
+  gap: 20px;
 }
