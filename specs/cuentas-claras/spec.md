@@ -45,8 +45,8 @@ La sección "Participantes" tiene un campo "Nombre" y un botón "Agregar".
 - Nombre válido: de 1 a 30 caracteres, y distinto de los nombres existentes
   sin distinguir mayúsculas de minúsculas ("ana" y "Ana" son el mismo).
 - Al pulsar "Agregar" (o Enter en el campo) con un nombre válido, el
-  participante se agrega al final de la lista, el campo se vacía y conserva
-  el foco.
+  participante se agrega al final de la lista, el campo se vacía, conserva
+  el foco y desaparece el mensaje de error si lo había.
 - Con un nombre inválido no se agrega nada y el campo muestra uno de estos
   mensajes: "Ingresa un nombre." (vacío), "El nombre puede tener hasta 30
   caracteres." (largo) o "Ya existe un participante con ese nombre."
@@ -86,7 +86,8 @@ casilla por participante) y el botón "Registrar gasto".
   mensaje.
 - Tras registrar un gasto válido, "Descripción" y "Monto (Bs)" se vacían,
   "Pagó" conserva su valor, "Dividir entre" vuelve a tener todas las casillas
-  marcadas y el foco pasa a "Descripción".
+  marcadas, desaparecen los mensajes de error y el foco pasa a
+  "Descripción".
 
 ### RQ-04 Reparto en partes iguales
 Cada gasto se divide en partes iguales entre las personas de "dividir entre".
@@ -151,9 +152,11 @@ separador de miles y coma decimal, siempre con dos decimales.
 
 ### RQ-11 Interfaz: idioma, etiquetas y teclado
 - Todos los textos visibles están en español.
-- Cada campo tiene una etiqueta visible asociada. Un campo con error queda
-  marcado como inválido (`aria-invalid`) y su mensaje está asociado al campo
-  (`aria-describedby`).
+- Cada campo tiene una etiqueta visible asociada; las casillas de "Dividir
+  entre" forman un grupo cuyo nombre es "Dividir entre".
+- Un campo de texto con error queda marcado como inválido (`aria-invalid`) y
+  su mensaje está asociado al campo (`aria-describedby`). El mensaje de
+  "Dividir entre" se asocia al grupo de casillas (`aria-describedby`).
 - Todos los controles se pueden usar con el teclado (Tab, Enter, Espacio) y
   tienen foco visible.
 

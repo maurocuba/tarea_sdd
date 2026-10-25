@@ -93,6 +93,19 @@ describe('ExpenseForm (RQ-03)', () => {
     expect(screen.queryByText('Elige al menos una persona.')).not.toBeInTheDocument()
   })
 
+  it('clears the error messages after a valid expense', async () => {
+    const { onAdd, user } = setup()
+    await user.click(screen.getByRole('button', { name: 'Registrar gasto' }))
+    expect(screen.getByLabelText('Descripción')).toHaveAttribute('aria-invalid', 'true')
+
+    await user.type(screen.getByLabelText('Descripción'), 'Cena')
+    await user.type(screen.getByLabelText('Monto (Bs)'), '50{Enter}')
+    expect(onAdd).toHaveBeenCalledTimes(1)
+    expect(screen.getByLabelText('Descripción')).toHaveAttribute('aria-invalid', 'false')
+    expect(screen.getByLabelText('Monto (Bs)')).toHaveAttribute('aria-invalid', 'false')
+    expect(screen.queryByText('Ingresa una descripción de hasta 60 caracteres.')).not.toBeInTheDocument()
+  })
+
   it('checks a participant added later', async () => {
     const { user, view } = setup(people.slice(0, 2))
     await user.click(screen.getByLabelText('Beto'))

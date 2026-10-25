@@ -92,7 +92,7 @@ pruebas, escritas a partir de los criterios de los RQ que cubre. Ver CLAUDE.md.
   completo en `App` de una cena entre tres.
 - **Hecho cuando**: la app cubre las historias HU-1 a HU-4.
 
-## [ ] T-10 Verificar contra la spec y cerrar
+## [x] T-10 Verificar contra la spec y cerrar
 - **Cubre**: RQ-01 a RQ-12 (verificación)
 - **Qué**: `verification.md` con el estado de cada criterio y su evidencia
   (pruebas, navegador y revisión estática); `README.md`; sincronizar spec,
