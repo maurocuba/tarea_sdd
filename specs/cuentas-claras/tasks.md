@@ -32,7 +32,7 @@ pruebas, escritas a partir de los criterios de los RQ que cubre. Ver CLAUDE.md.
   entre"; saldos de un grupo con varios gastos; la suma de saldos es cero.
 - **Hecho cuando**: los saldos de cualquier grupo suman cero.
 
-## [ ] T-04 Liquidación sugerida
+## [x] T-04 Liquidación sugerida
 - **Cubre**: RQ-08
 - **Qué**: `settle.ts` (`suggestTransfers`).
 - **Pruebas primero**: casos fijos (una deuda, dos deudores y un acreedor,
