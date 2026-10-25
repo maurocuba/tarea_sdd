@@ -52,7 +52,7 @@ pruebas, escritas a partir de los criterios de los RQ que cubre. Ver CLAUDE.md.
   estado inicial.
 - **Hecho cuando**: ninguna acción puede dejar el grupo inconsistente.
 
-## [ ] T-06 Persistencia
+## [x] T-06 Persistencia
 - **Cubre**: RQ-10
 - **Qué**: `storage.ts` (`loadGroup`, `saveGroup`) y `useGroup.ts`.
 - **Pruebas primero**: ida y vuelta de un grupo; datos ausentes, JSON roto,
