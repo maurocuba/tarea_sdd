@@ -1,4 +1,6 @@
 import styles from './App.module.css'
+import { ExpenseForm } from './components/ExpenseForm'
+import { ExpenseList } from './components/ExpenseList'
 import { ParticipantsPanel } from './components/ParticipantsPanel'
 import { isParticipantInUse } from './state/groupReducer'
 import { useGroup } from './state/useGroup'
@@ -20,8 +22,18 @@ export default function App() {
             onAdd={(name) => dispatch({ type: 'addParticipant', name })}
             onRemove={(id) => dispatch({ type: 'removeParticipant', id })}
           />
+          <ExpenseForm
+            participants={group.participants}
+            onAdd={(expense) => dispatch({ type: 'addExpense', expense })}
+          />
         </div>
-        <div className={styles.column} />
+        <div className={styles.column}>
+          <ExpenseList
+            participants={group.participants}
+            expenses={group.expenses}
+            onRemove={(id) => dispatch({ type: 'removeExpense', id })}
+          />
+        </div>
       </div>
     </main>
   )

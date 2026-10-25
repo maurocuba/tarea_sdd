@@ -131,3 +131,48 @@
 .spaced {
   margin-top: 12px;
 }
+
+.fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: grid;
+  gap: 6px;
+}
+
+.checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.expense {
+  display: grid;
+  gap: 2px;
+  flex: 1;
+}
+
+.expenseTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.amount {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.total {
+  margin: 12px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-weight: 700;
+}

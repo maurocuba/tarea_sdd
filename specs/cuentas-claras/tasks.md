@@ -72,7 +72,7 @@ pruebas, escritas a partir de los criterios de los RQ que cubre. Ver CLAUDE.md.
   deshabilitado con "Tiene gastos registrados"; lista vacía con su texto.
 - **Hecho cuando**: se puede armar la lista de participantes.
 
-## [ ] T-08 Interfaz: gastos
+## [x] T-08 Interfaz: gastos
 - **Cubre**: RQ-03, RQ-05, RQ-06, RQ-11
 - **Qué**: `ExpenseForm.tsx` y `ExpenseList.tsx` conectados a `App`.
 - **Pruebas primero**: sin participantes muestra el texto; valores por
