@@ -4,7 +4,7 @@ Una tarea = un commit, solo cuando está en verde (pruebas, tipos, lint y build
 sin errores). El commit incluye el checkbox marcado. Cada tarea empieza con sus
 pruebas, escritas a partir de los criterios de los RQ que cubre. Ver CLAUDE.md.
 
-## [ ] T-01 Preparar el proyecto
+## [x] T-01 Preparar el proyecto
 - **Cubre**: ninguno (infraestructura)
 - **Qué**: Vite + React + TypeScript estricto, Vitest + RTL + jsdom, ESLint, y
   los scripts `dev`, `build`, `test`, `lint`, `typecheck`. App mínima con el
