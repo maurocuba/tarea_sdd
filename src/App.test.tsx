@@ -88,4 +88,82 @@ describe('App', () => {
     expect(screen.getByRole('checkbox', { name: 'Ana' })).not.toBeChecked()
     expect(screen.getByRole('checkbox', { name: 'Beto' })).toBeChecked()
   })
+
+  it('settles a dinner among three friends (RQ-04, RQ-07, RQ-08)', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+    await addPeople(user, 'Ana', 'Beto', 'Caro')
+    await addExpense(user, 'Cena', '90')
+    await user.selectOptions(screen.getByLabelText('Pagó'), 'Beto')
+    await addExpense(user, 'Taxi', '30')
+    await user.selectOptions(screen.getByLabelText('Pagó'), 'Caro')
+    await user.click(screen.getByRole('checkbox', { name: 'Ana' }))
+    await addExpense(user, 'Helado', '10')
+
+    const balances = within(screen.getByRole('region', { name: 'Saldos' }))
+      .getAllByRole('listitem')
+      .map((li) => li.textContent)
+    expect(balances).toEqual(['Ana+Bs 50,00le deben', 'Beto-Bs 15,00debe', 'Caro-Bs 35,00debe'])
+
+    const transfers = within(screen.getByRole('region', { name: 'Cómo saldar cuentas' }))
+      .getAllByRole('listitem')
+      .map((li) => li.textContent)
+    expect(transfers).toEqual(['Caro paga Bs 35,00 a Ana', 'Beto paga Bs 15,00 a Ana'])
+  })
+
+  it('splits Bs 10,00 among three with the extra cent to the first (RQ-04)', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+    await addPeople(user, 'Ana', 'Beto', 'Caro')
+    await user.selectOptions(screen.getByLabelText('Pagó'), 'Caro')
+    await addExpense(user, 'Pizza', '10')
+    expect(screen.getByRole('region', { name: 'Cómo saldar cuentas' })).toHaveTextContent(
+      'Ana paga Bs 3,34 a CaroBeto paga Bs 3,33 a Caro',
+    )
+  })
+
+  it('says there are no pending debts when everyone is even (RQ-08)', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+    await addPeople(user, 'Ana')
+    await addExpense(user, 'Pan', '5')
+    expect(screen.getByText('No hay deudas pendientes.')).toBeInTheDocument()
+    expect(screen.getByText('está al día')).toBeInTheDocument()
+  })
+
+  describe('Borrar todo (RQ-12)', () => {
+    it('is only shown when there are participants', async () => {
+      const user = userEvent.setup()
+      render(<App />)
+      expect(screen.queryByRole('button', { name: 'Borrar todo' })).not.toBeInTheDocument()
+      await addPeople(user, 'Ana')
+      expect(screen.getByRole('button', { name: 'Borrar todo' })).toBeInTheDocument()
+    })
+
+    it('empties the group after confirming, and that is saved', async () => {
+      const confirm = vi.spyOn(window, 'confirm').mockReturnValue(true)
+      const user = userEvent.setup()
+      const { unmount } = render(<App />)
+      await addPeople(user, 'Ana', 'Beto')
+      await addExpense(user, 'Cena', '90')
+      await user.click(screen.getByRole('button', { name: 'Borrar todo' }))
+
+      expect(confirm).toHaveBeenCalledWith('¿Borrar todos los participantes y gastos?')
+      expect(participantNames()).toEqual([])
+      expect(screen.getByText('Todavía no hay gastos.')).toBeInTheDocument()
+      unmount()
+
+      render(<App />)
+      expect(participantNames()).toEqual([])
+    })
+
+    it('changes nothing when cancelled', async () => {
+      vi.spyOn(window, 'confirm').mockReturnValue(false)
+      const user = userEvent.setup()
+      render(<App />)
+      await addPeople(user, 'Ana')
+      await user.click(screen.getByRole('button', { name: 'Borrar todo' }))
+      expect(participantNames()).toEqual(['Ana'])
+    })
+  })
 })

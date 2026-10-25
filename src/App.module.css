@@ -29,3 +29,13 @@
   display: grid;
   gap: 20px;
 }
+
+.clear {
+  padding: 6px 12px;
+  border: 1px solid var(--negative);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--negative);
+  font-weight: 600;
+  cursor: pointer;
+}

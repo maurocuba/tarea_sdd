@@ -82,7 +82,7 @@ pruebas, escritas a partir de los criterios de los RQ que cubre. Ver CLAUDE.md.
   eliminar con confirmación aceptada y cancelada.
 - **Hecho cuando**: se pueden registrar y borrar gastos.
 
-## [ ] T-09 Interfaz: saldos, liquidación y borrar todo
+## [x] T-09 Interfaz: saldos, liquidación y borrar todo
 - **Cubre**: RQ-07, RQ-08, RQ-09, RQ-12
 - **Qué**: `BalancesPanel.tsx`, `SettlementPanel.tsx` y el botón "Borrar
   todo" en `App`.

@@ -176,3 +176,16 @@
   border-top: 1px solid var(--border);
   font-weight: 700;
 }
+
+.balance {
+  display: grid;
+  justify-items: end;
+}
+
+.balance[data-sign='1'] .amount {
+  color: var(--positive);
+}
+
+.balance[data-sign='-1'] .amount {
+  color: var(--negative);
+}
